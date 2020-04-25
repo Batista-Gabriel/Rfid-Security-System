@@ -1,0 +1,18 @@
+CREATE TABLE card(
+card_id BIGINT PRIMARY KEY);
+
+CREATE TABLE "user"(
+user_id SERIAL PRIMARY KEY,
+user_name VARCHAR(30) NOT NULL,
+user_nickname VARCHAR(30),
+user_gender VARCHAR(30),
+card_id_fk BIGINT REFERENCES card(card_id),
+user_creation_day DATE NOT NULL DEFAULT CURRENT_DATE);
+
+
+
+DROP TABLE "user";
+DROP TABLE card;
+
+ID da tag:48B3CC2B
+7217920443

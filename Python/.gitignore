@@ -1,0 +1,11 @@
+functions.txt
+__pycache__/arduino.cpython-37.pyc
+__pycache__/card.cpython-37.pyc
+__pycache__/user.cpython-37.pyc
+
+/classes/__pycache__
+testapi.py
+utils/classes/__pycache__/user.cpython-37.pyc
+psy.py
+
+verificar cartao.bat
