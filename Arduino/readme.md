@@ -7,4 +7,4 @@
 * [Arduino How to](https://www.youtube.com/watch?v=5OtMqr5hGjE)  (If you dont know how to use, hope it can help)
 
 ## Wire connection
-<img src="https://i.imgur.com/pqtyT0t.png" width="1000" height="932">
+<img src="https://i.imgur.com/JYNB4B5.png" width="700" height="632">
