@@ -1,16 +1,23 @@
 import requests
+
+import sys
 from utils.classes.card import Card
 from utils.classes.arduino import Arduino
-
+arduinoDoor = "COM15" #arduino door
 
 if __name__ == '__main__':
-  arduino = Arduino()
+       
   try:
+    card = Card()
+    arduino = Arduino(arduinoDoor)
+    
+      
+    if arduino.error:
+      del arduino
+      sys.exit("Something went wrong. Probably the wrong door was set")
     while 1:
       
-
-      card = Card()
-
+        
       choice =int(input("\n \nType:\n1  to register a new card \n2 to verify if it's registered \n3 to seek its owner info: "))
       print("Awaiting card to be read \n")
       
@@ -47,8 +54,8 @@ if __name__ == '__main__':
         
       
 
-      input("Press ENTER to prossid")
+      input("Press ENTER to proceed")
   except KeyboardInterrupt:
-        print("\n\nExecution ended by user") 
-        del arduino
+    print("\n\nExecution ended by user") 
+    del arduino
       

@@ -2,23 +2,28 @@ from time import sleep
 from pySerialTransfer import pySerialTransfer as serial
 import string
 
+import sys
+
 def split(word): 
     return [char for char in word]  
  
 class Arduino:
-    door= "COM13" 
-    link = ''   
 
-    def __init__(self):
-        self.door= "COM13"
-        self.link = serial.SerialTransfer(self.door)
-        self.link.open()
-        print("Initializing...")
-        sleep(3)
-        print("Ready")
+    def __init__(self,door):
+        try:
+            print("Initializing...")
+            self.door= door
+            self.link = serial.SerialTransfer(self.door)
+            self.link.open()
+            sleep(3)
+            print("Ready")
+            self.error = False
+        except Exception as e:
+            self.error = True
 
     def __del__(self): 
-        self.link.close()
+        if (not self.error):
+            self.link.close()
 
     def read(self):
         
@@ -29,7 +34,6 @@ class Arduino:
                     if self.link.status < 0:
                         print('ERROR: {}'.format(self.link.status))                                            
                 
-                #print('Response received:')
             
                 response = ''
                 for index in range(self.link.bytesRead):                   
